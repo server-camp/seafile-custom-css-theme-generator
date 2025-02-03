@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name=viewport content="width=device-width, initial-scale=1"/>
+    <link rel="icon" type="image/png" href="img/favicon.svg"/>
+    <title>Seafile Custom CSS Theme Generator</title>
+    <link type="text/css" href="css/pico.css" rel="stylesheet"/>
+    <link type="text/css" href="css/style.css" rel="stylesheet"/>
+    <!-- language redirect -->
+    <script type="text/javascript">
+        let lang = window.navigator.languages ? window.navigator.languages[0] : null;
+        lang = lang || window.navigator.language || window.navigator.browserLanguage
+            || window.navigator.userLanguage;
+
+        let shortLang = lang;
+        if (shortLang.indexOf('-') !== -1)
+            shortLang = shortLang.split('-')[0];
+
+        if (shortLang.indexOf('_') !== -1)
+            shortLang = shortLang.split('_')[0];
+
+        if (shortLang === 'de')
+            console.log("redirecting to german page...");
+        //window.location.replace('./index-' + shortLang + '.html');
+    </script>
+</head>
+<body>
+<div class="header">
+    <div class="container">
+        <a href="https://server.camp/">
+            <img class="logo" src="img/logo_background_white.svg" alt="server.camp logo">
+            &nbsp;server.camp
+        </a>
+    </div>
+</div>
+<div class="container">
+    <h1 class="text-center mb-5vh">Seafile Custom CSS Theme Generator</h1>
+    <article>
+        <header>
+            Transform your Seafile service with a personalized color theme using custom CSS!
+        </header>
+        <p class="alert alert-info">
+            With this color configurator, you can quickly generate customized CSS code tailored to your preferred color
+            scheme. Start by selecting a primary color, a primary text color, your Seafile version, and your preferred
+            theme. Once you make your selections, you'll receive your custom CSS code. To apply it, go to the Seafile
+            administration interface and enter the CSS code under “Settings” ➞ “Branding” ➞ “Custom CSS”.
+        </p>
+        <form class="grid">
+            <p>
+                <label for="primary-color">Choose your primary color</label>
+                <input type="color" id="primary-color" name="primary-color" value="#00395f" onchange="updateColor()">
+            </p>
+            <p>
+                <label for="primary-text-color">Choose your primary text color</label>
+                <select id="primary-text-color" name="primary-text-color" onchange="updateColor()">
+                    <option value="#ffffff">White</option>
+                    <option value="#000000">Black</option>
+                </select>
+            </p>
+            <p>
+                <label for="seafile-theme">Choose your <em
+                        data-tooltip="Currently, only Seafile 12 with light theme is supported. More seafile versions and themes may follow">Seafile
+                    version & theme</em></label>
+                <select id="seafile-theme" name="seafile-theme" onchange="updateColor()">
+                    <option value="seafile-12-light">Seafile 12 Light Theme</option>
+                    <!-- it would be awesome to provide a dark theme as well -->
+                </select>
+            </p>
+        </form>
+
+
+        <textarea id="custom-css" placeholder="Choose a color to generate your custom css code" readonly="readonly"
+                  onclick="this.select()"></textarea>
+        <div class="text-right">
+            <button id="copy" class="btn-small" onclick="copyToClipboard()"><img class="icon-small hidden" src="img/check-mark-icon.svg" alt="copied!"/> Copy to clipboard</button>
+        </div>
+
+
+        <footer class="grid">
+            <div>
+                <a href="https://github.com/server-camp/seafile-custom-css-theme-generator/issues">Submit an Issue</a>
+            </div>
+            <div class="text-center">
+                <a href="https://server.camp/data_privacy/">Privacy Policy</a> -
+                <a href="https://server.camp/imprint/">Imprint</a>
+            </div>
+            <div class="text-right">
+                <a href="https://github.com/server-camp/seafile-custom-css-theme-generator">
+                    Open Source @ <img src="img/github-mark.svg" alt="this is open source @ Github" class="icon"/>
+                </a>
+            </div>
+        </footer>
+    </article>
+
+    <p class="alert alert-muted">This project is not affiliated with <a href="https://www.seafile.com" target="_blank">Seafile
+        or Seafile Ltd</a>. It is a tool designed to generate custom CSS code for the Seafile web interface. Please be
+        aware that the generated CSS code may not be compatible with future versions of Seafile, and you should use it
+        at your own risk. This service is provided by <a href="https://server.camp/">server.camp, a German open-source
+            hosting service for individuals and organizations</a>.
+    </p>
+
+</div>
+<script src="js/script.js"></script>
+<script>
+    // run updateColor when document is ready
+    document.addEventListener("DOMContentLoaded", function () {
+        updateColor();
+    });
+</script>
+</body>
+</html>

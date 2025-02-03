@@ -1,0 +1,111 @@
+:root {
+    --pico-font-family: "Inter", sans-serif;
+}
+
+html, body {
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+[data-theme=light], :root:not([data-theme=dark]) {
+    --pico-primary-text: #ffffff;
+    --pico-secondary-text: #093756;
+    --pico-primary-background: #00395f;
+    --pico-secondary-background: #ffffff;
+    --pico-primary-border: #00395f;
+    --pico-secondary-border: #00395f;
+}
+
+.header {
+    background: var(--pico-primary-background);
+    color: var(--pico-primary-text);
+    padding: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 8vh;
+}
+
+.header a {
+    color: var(--pico-primary-text);
+    --pico-text-decoration: none;
+}
+
+.header a:focus, .header a:hover {
+    color: var(--pico-primary-text);
+    --pico-text-decoration: none;
+}
+
+.logo {
+    height: 1.5rem;
+    margin-top: -0.25rem;
+}
+
+textarea {
+    height: 30vh;
+    font-family: monospace;
+    font-size: 0.875rem;
+}
+
+.btn-small {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+}
+
+.icon-small {
+    height: 0.875rem;
+}
+
+header {
+    font-weight: 600;
+}
+
+footer > * > a {
+    --pico-text-decoration: none;
+    color: var(--pico-secondary-text);
+    opacity: 0.7;
+}
+
+.alert {
+    border: 1px solid;
+    padding: 1rem 2rem;
+}
+
+.alert-info {
+    background-color: #E9F2FC;
+    border-color: #02659A;
+    color: #014063;
+}
+
+.alert-muted {
+    background-color: transparent;
+    border-color: transparent;
+    color: #989898;
+}
+.alert-muted a {
+    color: #989898;
+    text-decoration-color: #989898;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.icon {
+    height: 1rem;
+    width: auto;
+}
+
+.mb-5vh {
+    margin-bottom: 5vh;
+}
+#copy {
+    transition: all 1s ease-out;
+}
+.hidden {
+    display: none;
+}
